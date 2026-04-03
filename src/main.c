@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 #define COLS 20
 #define ROWS 20
@@ -57,9 +57,9 @@ int lf(const char *path)
 				} 
 			} else if (pln >= 1) {
 				
-				int l = 0;
-				if (isdigit(data[i-1])) { l = data[i-1] - '0'; /* Convert data asci into int */ } else { l = 0; }
-
+				int l;
+				
+				if (isdigit(data[i-1])) { l = data[i-1] - '0';} else { l = 1; }
 				
 				for (int g = 0; g < l; ++g)
 				{
@@ -146,7 +146,6 @@ int main(int argc, char **argv)
 		case 2:
 			lf(argv[1]);
 			display();
-			return 0;
 			break;
 		default:
 			usage();
@@ -155,7 +154,7 @@ int main(int argc, char **argv)
 	}	
 	for (;;)
 	{
-		usleep((useconds_t)1500*100); // Sleep a bit
+		sleep(1);
 		cls();	
 		display();	
 		memcpy(cp_buff, buff, sizeof(buff));
