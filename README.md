@@ -1,4 +1,4 @@
-# Simple game of life with file reading support
+# Simple game of life with RLE parsing support
 
 A very simple minimal C dependency game of life.
 The grid size is configured at compile time using the 'ROWS' and 'COLS' definitions on the 'main.c' code.
