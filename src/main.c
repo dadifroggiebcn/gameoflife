@@ -128,14 +128,14 @@ int count(int arr[ROWS][COLS], int x, int y) // fy/fx -> finalx/y
 
 void usage(void)
 {
-	puts("Incorrect argument count!\nUsage:\n./glife 'path'");
+	puts("Incorrect argument count!\nUsage:\n./glife 's' 'path' \nWhere:\n - path -> path to a .rle file\n - s -> number of seconds between each calculation\n");
 }
-
 int main(int argc, char **argv)
 {
+	int seg = 1;	
 	switch (argc) {
 		case 1:
-			puts("Using default map");
+			puts("Using default map; 1 seg");
 			sleep(1);	
 			// Staring map
 	
@@ -143,8 +143,16 @@ int main(int argc, char **argv)
 			buff[2][5] = 1;
 			buff[3][5] = 1;
 			break;
-		case 2:
-			lf(argv[1]);
+		case 3:
+			if (isdigit(argv[1][0]))
+			{
+				seg = atoi(argv[1]);
+			} else {
+				usage();
+				return 1;
+			}
+
+			lf(argv[2]);
 			display();
 			break;
 		default:
@@ -154,7 +162,7 @@ int main(int argc, char **argv)
 	}	
 	for (;;)
 	{
-		sleep(1);
+		sleep(seg);
 		cls();	
 		display();	
 		memcpy(cp_buff, buff, sizeof(buff));
