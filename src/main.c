@@ -65,11 +65,11 @@ int lf(const char *path)
 				{
 					switch (val)
 					{
-						case 'b': puts("b"); buff[xwrt][ywrt]=0; ++xwrt; break;
-						case 'o': puts("o");buff[xwrt][ywrt]=1; ++xwrt; break;
-						case '$': puts("$"); xwrt = LEFTMRG; ++ywrt; break;
-						case '!': puts("!"); i = returnval; break; // End loop
-						default: printf("TODO: %c\n", data[i]);
+						case 'b': buff[xwrt][ywrt]=0; ++xwrt; break;
+						case 'o': buff[xwrt][ywrt]=1; ++xwrt; break;
+						case '$': xwrt = LEFTMRG; ++ywrt; break;
+						case '!': i = returnval; break; // End loop
+						default: break;
 					}
 				}
 			} else {
