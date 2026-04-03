@@ -10,4 +10,4 @@ For usage run ./glife -h
 
 The executable accepts a file path argument where the file contains the alive and dead cell data in the RLE (Run Lenght encoded) file format.
 
-For more information about the file format check 'https://conwaylife.com/wiki/Run_Length_Encoded'.
+For more information about the file format check: https://conwaylife.com/wiki/Run_Length_Encoded
