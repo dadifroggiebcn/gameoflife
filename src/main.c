@@ -7,10 +7,8 @@
 #include <ctype.h>
 #include <time.h>
 
-#define COLS 20
-#define ROWS 20
-#define LEFTMRG 2 
-#define TOPMRG 1
+#include "settings.h"
+
 int buff[ROWS][COLS] = {0};
 int cp_buff[ROWS][COLS] = {0};
 char *title;
