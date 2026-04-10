@@ -40,18 +40,19 @@ int lf(const char *path)
 
 
 	
-	for (int i = 0; i < returnval; ++i)
+	for (int i = 0; i < returnval; ++i) // Iterate each character
 	{
 		char val = data[i];
 		
-		if (val == '#') { ignl = 1; --pln; } 
+		if (val == '#') { ignl = 1; --pln; } // Ignore line if starting with #
 		if (ignl == 0 && val != '\n')
 		{
 			if (pln == 0) { // TODO Compare map size with required size	
 				
-				switch (val) {
-				case 'x': ncs_x = data[i+4]; break;
-				case 'y': ncs_y = data[i+4]; break;
+				switch (val)
+				{
+					case 'x': ncs_x = data[i+4]; break;
+					case 'y': ncs_y = data[i+4]; break;
 				} 
 			} else if (pln >= 1) {
 				
@@ -102,10 +103,10 @@ void display(void)
 	}
 }
 
-int count(int arr[ROWS][COLS], int x, int y) // fy/fx -> finalx/y 
+int count(int arr[ROWS][COLS], int x, int y) // fy/fx -> final x/y
 {
 	int cells = 0;
-	for (int dx = -1; dx <= 1; ++dx)
+	for (int dx = -1; dx <= 1; ++dx) // Where -1 and 1 are postitions arround cell
 	{
 		for (int dy = -1; dy <= 1; ++dy)
 		{
